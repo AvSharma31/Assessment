@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.ensemble import RandomForestRegressor
 
-file = 'your_dataset.csv'
+file = 'instagram_reach.csv'
 
 df = pd.read_csv(file)
 
