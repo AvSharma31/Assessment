@@ -9,12 +9,9 @@ file = 'instagram_reach.csv'
 
 df = pd.read_csv(file)
 
-# Assuming 'time_since_posted' is in datetime format, if not, convert it using pd.to_datetime
-df['Time_since_posted'] = (pd.to_datetime('now') - pd.to_datetime(df['time_since_posted'])).dt.total_seconds() / 3600  # Convert to hours
-
 # Step 2: Feature Engineering
 
-df['caption_length'] = df['Caption'].apply(len)
+df['caption_length'] = len(str(df['Caption']))
 df['hashtag_count'] = df['Hashtags'].apply(lambda x: len(x.split()))
 
 # Step 3: Feature Selection
@@ -22,7 +19,7 @@ features = df[['Followers', 'caption_length', 'hashtag_count']]
 
 # Step 4: Target Variables
 target_likes = df['Likes']
-target_time_since_posted = df['time_since_posted']
+target_Time since posted = df['Time since posted']
 
 # Step 5: Train-Test Split
 X_train, X_test, y_likes_train, y_likes_test, y_time_train, y_time_test = train_test_split(features, target_likes, target_time_since_posted, test_size=0.2, random_state=42)
