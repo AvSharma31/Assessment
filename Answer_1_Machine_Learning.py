@@ -19,7 +19,7 @@ features = df[['Followers', 'caption_length', 'hashtag_count']]
 
 # Step 4: Target Variables
 target_likes = df['Likes']
-target_Time since posted = df['Time since posted']
+target_Time_since_posted = df['Time since posted']
 
 # Step 5: Train-Test Split
 X_train, X_test, y_likes_train, y_likes_test, y_time_train, y_time_test = train_test_split(features, target_likes, target_time_since_posted, test_size=0.2, random_state=42)
